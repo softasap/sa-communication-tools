@@ -1,0 +1,11 @@
+---
+# defaults file for sa-communication-tools
+
+  option_hipchat: true
+
+  option_skype: true
+
+  option_slack: true
+
+  option_viber: true
+
