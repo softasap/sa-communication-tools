@@ -9,3 +9,8 @@
 
   option_viber: true
 
+
+  root_dir: "{{role_path}}"
+  deploy_user: "{{ansible_user_id}}"
+  apps_dir: "/home/{{ansible_user_id}}/apps"
+
