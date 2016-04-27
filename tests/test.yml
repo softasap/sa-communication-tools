@@ -3,5 +3,9 @@
   roles:
     - {
         role: "role_under_test",
-        option_install_java: true
+        option_skype: false,
+        option_viber: true,
+        option_slack: true,
+        option_hipchat: true
+
       }
