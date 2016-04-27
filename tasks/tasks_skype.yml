@@ -13,6 +13,14 @@
     tags:
       - skype
 
+  - name: Skype | Install skype-bin dependency
+    apt:  name=skype-bin state=present update-cache=yes
+    when: skype_present|failed
+    become: true
+    tags:
+      - skype
+
+
   - name: Skype | Install skype 4.3
     apt:  name=skype state=present update-cache=yes
     when: skype_present|failed
