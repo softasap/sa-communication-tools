@@ -4,12 +4,12 @@
    - include: tasks_hipchat_client.yml  
      when: option_hipchat 
 
-   - include: tasks_skype.yml  
-     when: option_skype
-
    - include: tasks_slack_client.yml  
      when: option_slack
   
    - include: tasks_viber.yml
      when: option_viber
+
+   - include: tasks_skype.yml
+     when: option_skype
   
