@@ -1,0 +1,22 @@
+  - name: Skype Call Recorder | Check if is present
+    command: test -x /usr/bin/skype-call-recorder
+    when: ansible_system == "Linux"
+    ignore_errors: yes
+    register: skype_rec_present
+    tags:
+      - skype_rec
+
+  - name: Skype Call Recorder | download package
+    get_url:
+      url="http://atdot.ch/scr/files/{{ skype_rec_version }}/skype-call-recorder-ubuntu_{{ skype_rec_version }}_amd64.deb"
+      dest="/tmp/skype_call_recorder.deb"
+    when: skype_rec_present|failed
+    tags:
+      - skype_rec
+
+  - name: Skype Call Recorder | install package
+    apt: deb="/tmp/skype_call_recorder.deb"
+    become: true
+    when: skype_rec_present|failed
+    tags:
+      - skype_rec
