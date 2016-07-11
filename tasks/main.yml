@@ -13,3 +13,5 @@
    - include: tasks_skype.yml
      when: option_skype
   
+   - include: tasks_skype_rec.yml
+     when: option_skype_rec

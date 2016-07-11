@@ -9,8 +9,9 @@
 
   option_viber: true
 
+  option_skype_rec: true
+  skype_rec_version: 0.11b
 
   root_dir: "{{role_path}}"
   deploy_user: "{{ansible_user_id}}"
   apps_dir: "/home/{{ansible_user_id}}/apps"
-

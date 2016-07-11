@@ -4,6 +4,7 @@
     - {
         role: "role_under_test",
         option_skype: false,
+        option_skype_rec: false,
         option_viber: true,
         option_slack: true,
         option_hipchat: true
