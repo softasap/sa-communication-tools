@@ -8,7 +8,7 @@ RUN apt-get upgrade -y
 RUN apt-get install -y software-properties-common git python-dev wget apt-transport-https libffi-dev libssl-dev
 RUN apt-get install -y python-pip
 RUN pip install -U pip
-RUN pip install ansible
+RUN pip install ansible==2.0.1.0
 RUN mkdir -p /etc/ansible
 RUN mkdir -p /home/root
 RUN touch /home/root/.profile
