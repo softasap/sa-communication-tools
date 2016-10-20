@@ -1,0 +1,21 @@
+  - name: Telegram | Check if is present
+    command: test -x /opt/telegram/Telegram
+    when: ansible_system == "Linux"
+    ignore_errors: yes
+    register: telegram_present
+    tags:
+      - telegram
+
+  - name: Telegram | Add Debian apt repository
+    apt_repository: repo='ppa:atareao/telegram'
+    when: telegram_present | failed
+    become: true
+    tags:
+      - telegram
+
+  - name: Telegram | Install telegram
+    apt:  name=telegram state=present update-cache=yes
+    when: telegram_present | failed
+    become: true
+    tags:
+      - telegram

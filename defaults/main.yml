@@ -5,12 +5,18 @@
 
   option_skype: true
 
+  option_skype_linux: true
+
   option_slack: true
 
   option_viber: true
 
   option_skype_rec: true
   skype_rec_version: 0.11b
+
+  skypeforlinux_version: 1.10.0.1
+
+  option_telegram: true
 
   root_dir: "{{role_path}}"
   deploy_user: "{{ansible_user_id}}"

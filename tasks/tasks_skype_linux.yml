@@ -1,0 +1,24 @@
+
+  - name: Skype Alpha | Check if is present
+    command: dpkg-query -W skypeforlinux
+    register: skypeforlinux_present
+    become: yes
+    failed_when: skypeforlinux_present.rc > 1
+    changed_when: skypeforlinux_present.rc == 1
+    tags:
+      - skypeforlinux
+
+  - name: Skype Alpha | download package
+    get_url:
+      url="https://repo.skype.com/deb/pool/main/s/skypeforlinux/skypeforlinux_{{skypeforlinux_version | default('1.10.0.1')}}_amd64.deb"
+      dest="/tmp/skypeforlinux.deb"
+    when: skypeforlinux_present.rc == 1
+    tags:
+      - skypeforlinux
+
+  - name: Skype Alpha | install package
+    apt: deb="/tmp/skypeforlinux.deb"
+    become: true
+    when: skypeforlinux_present.rc == 1
+    tags:
+      - skypeforlinux
