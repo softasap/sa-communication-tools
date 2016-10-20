@@ -1,17 +1,23 @@
 ---
 # tasks file for sa-communication-tools
 
-   - include: tasks_hipchat_client.yml  
-     when: option_hipchat 
+   - include: tasks_hipchat_client.yml
+     when: option_hipchat
 
-   - include: tasks_slack_client.yml  
+   - include: tasks_slack_client.yml
      when: option_slack
-  
+
    - include: tasks_viber.yml
      when: option_viber
 
    - include: tasks_skype.yml
      when: option_skype
-  
+
+   - include: tasks_skype_linux.yml
+     when: option_skype_linux
+
    - include: tasks_skype_rec.yml
      when: option_skype_rec
+
+   - include: tasks_telegram.yml
+     when: option_telegram
