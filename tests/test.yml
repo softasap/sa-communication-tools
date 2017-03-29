@@ -8,6 +8,7 @@
         option_viber: true,
         option_slack: true,
         option_hipchat: true,
+        option_hipchat4: true,
         option_skype_linux: true,
         option_telegram: true
       }

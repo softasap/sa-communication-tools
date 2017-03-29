@@ -1,0 +1,30 @@
+  - name: HipChat4 | Check if is present
+    command: dpkg-query -W hipchat4
+    register: hipchat4_present
+    become: yes
+    failed_when: hipchat4_present.rc > 1
+    changed_when: hipchat4_present.rc == 1
+    tags:
+      - hipchat4
+
+
+  - name: HipChat4 | Add  gpg keys
+    shell: wget -O - https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public | apt-key add -
+    when: hipchat4_present.rc == 1
+    become: true
+    tags:
+      - hipchat4
+
+  - name: HipChat4 | Add Debian apt repository
+    apt_repository: repo="deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ansible_distribution_release}} main"
+    when: hipchat4_present.rc == 1
+    become: true
+    tags:
+      - hipchat4
+
+  - name: HipChat4 | Install hipchat4 client
+    apt:  name=hipchat state=present update-cache=yes
+    when: hipchat4_present.rc == 1
+    become: true
+    tags:
+      - hipchat4

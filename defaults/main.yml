@@ -1,7 +1,9 @@
 ---
 # defaults file for sa-communication-tools
 
-  option_hipchat: true
+  option_hipchat: false
+
+  option_hipchat4: true
 
   option_skype: true
 
