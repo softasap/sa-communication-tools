@@ -10,7 +10,7 @@
 
   - name: Skype Alpha | download package
     get_url:
-      url="https://repo.skype.com/deb/pool/main/s/skypeforlinux/skypeforlinux_{{skypeforlinux_version | default('1.10.0.1')}}_amd64.deb"
+      url="https://repo.skype.com/deb/pool/main/s/skypeforlinux/skypeforlinux_{{skypeforlinux_version | default('1.17.0.1')}}_amd64.deb"
       dest="/tmp/skypeforlinux.deb"
     when: skypeforlinux_present.rc == 1
     tags:
