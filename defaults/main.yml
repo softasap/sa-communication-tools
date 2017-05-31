@@ -16,7 +16,7 @@
   option_skype_rec: true
   skype_rec_version: 0.11b
 
-  skypeforlinux_version: 1.17.0.1
+  skypeforlinux_version: 5.3.0.1
 
   option_telegram: true
 
