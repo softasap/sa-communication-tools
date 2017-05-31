@@ -14,7 +14,7 @@
       dest="/tmp/viber.deb"
     when: viber_present.rc == 1
     tags:
-      - slack
+      - viber
 
   - name: Viber | install package
     apt: deb="/tmp/viber.deb"
